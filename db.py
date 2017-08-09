@@ -1,10 +1,9 @@
 import sqlite3
 from random import randint
-import utils
-import bot
 
 
-def addUser(username):
+def addUser(username): # добавить пользователя в базу данных. возвращает False, если уже занесен
+#    username = username.lower
     connection = sqlite3.connect('ChattersPoints.db')
     cursor = connection.cursor()
 
@@ -19,7 +18,8 @@ def addUser(username):
         return False
 
 
-def addPoint(username, points):
+def addPoint(username, points): # добавить очков усеру, возвращает False и добавляет усера в базу, если его там еще нет
+#    username = username.lower
     connection = sqlite3.connect('ChattersPoints.db')
     cursor = connection.cursor()
 
@@ -37,7 +37,8 @@ def addPoint(username, points):
         return True
 
 
-def takeawayPoint(username, points):
+def takeawayPoint(username, points): # отнять очков усеру, возвращает False, если у усера нет столько очков, сколько указано
+#    username = username.lower
     connection = sqlite3.connect('ChattersPoints.db')
     cursor = connection.cursor()
 
@@ -54,7 +55,8 @@ def takeawayPoint(username, points):
         return True
 
 
-def countPoint(username):
+def countPoint(username): # возвращает количество очков у усера
+#    username = username.lower
     connection = sqlite3.connect('ChattersPoints.db')
     cursor = connection.cursor()
 
@@ -62,7 +64,8 @@ def countPoint(username):
     return cursor.fetchone()
 
 
-def createMSize(username):
+def createMSize(username): # размер морковки. добавляет в базу и присваиваеет рандомное значение
+#    username = username.lower
     connection = sqlite3.connect('ChattersPoints.db')
     cursor = connection.cursor()
 
@@ -79,7 +82,8 @@ def createMSize(username):
         return size[0]
 
 
-def setMSize(username, count):
+def setMSize(username, count): # меняет размер морковки
+#    username = username.lower
     connection = sqlite3.connect('ChattersPoints.db')
     cursor = connection.cursor()
 
